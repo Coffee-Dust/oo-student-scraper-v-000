@@ -4,7 +4,7 @@ require 'pry'
 class Scraper
 
   def self.scrape_index_page(index_url)
-    cards = index_url.css(".roster-cards-container")
+    cards = index_url.css(".roster-cards-container .student-card")
     contents = []
 
 
