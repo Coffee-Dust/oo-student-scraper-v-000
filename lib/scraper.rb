@@ -24,7 +24,9 @@ class Scraper
     hash[:name] = vital_text.css(".profile_name").text.strip
     hash[:location] = card.css(".profile_location").text.strip
     hash[:profile_quote] = card.css(".profile_quote").text.strip
-    hash[:]
+
+    social.each do |link|
+    end
   end
 
 end
