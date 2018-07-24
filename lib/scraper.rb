@@ -10,7 +10,7 @@ class Scraper
     cards.each do |card|
       hash = {}
       hash[profile_url] = card.css("a").attribute("href").text.strip
-      hash[name] =
+      hash[name] = card.css("a .card-text-container h4").text.strip
 
     end
 
