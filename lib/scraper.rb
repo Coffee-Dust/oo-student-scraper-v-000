@@ -19,8 +19,12 @@ class Scraper
 
   def self.scrape_profile_page(profile_url)
     vital_text = profile_url.css(".vitals-container .vitals-text-container")
+    social = profile_url.css(".vitals-container .social-icon-container")
     hash = {}
     hash[:name] = vital_text.css(".profile_name").text.strip
+    hash[:location] = card.css(".profile_location").text.strip
+    hash[:profile_quote] = card.css(".profile_quote").text.strip
+    hash[:]
   end
 
 end
