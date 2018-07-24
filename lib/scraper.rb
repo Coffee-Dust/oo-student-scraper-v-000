@@ -14,7 +14,7 @@ class Scraper
       hash[location] = card.css("a .card-text-container p").text.strip
       contents << hash
     end
-
+    contents
   end
 
   def self.scrape_profile_page(profile_url)
