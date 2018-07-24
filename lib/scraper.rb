@@ -7,7 +7,7 @@ class Scraper
     cards = index_url.css(".roster-cards-container .student-card")
     contents = []
 
-    cards.each { |card|
+    cards.each do |card|
 
 
     end
