@@ -20,10 +20,10 @@ class Scraper
 
   def self.scrape_profile_page(profile_url)
     profile_url = Nokogiri::HTML(open(profile_url))
-    
+
     vital_text = profile_url.css(".vitals-container .vitals-text-container")
     social = profile_url.css(".vitals-container .social-icon-container a")
-    
+
     hash = {}
 
     hash[:profile_quote] = vital_text.css(".profile-quote").text.strip
