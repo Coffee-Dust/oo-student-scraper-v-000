@@ -25,7 +25,7 @@ class Scraper
     hash[:location] = card.css(".profile_location").text.strip
     hash[:profile_quote] = card.css(".profile_quote").text.strip
 
-    hash[:twitter] = social.
+    hash[:twitter] = social.match(/twitter.com/)
     social.each do |link|
       link.attribute("href")
     end
