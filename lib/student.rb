@@ -5,7 +5,9 @@ class Student
   @@all = []
 
   def initialize(student_hash)
-    @name, @location, @twitter, @linkedin, @github, @blog, @profile_quote, @bio, @profile_url = student_hash[:name], student_hash[:location], student_hash[:twitter], student_hash[:linkedin], student_hash[:github], student_hash[:blog], student_hash[:profile_quote], student_hash[:bio], student_hash[:profile_url]
+    student_hash.each do |key, value|
+
+    end
     @@all << self
   end
 
