@@ -24,7 +24,7 @@ class Scraper
     hash[:name] = vital_text.css(".profile-name").text.strip
     hash[:location] = vital_text.css(".profile-location").text.strip
     hash[:profile_quote] = vital_text.css(".profile-quote").text.strip
-
+    hash[:bio] = profile_url.css(".bio-content .description-holder p").text.strip
     social.each do |link|
 
       if link.attribute("href").text.match(/twitter.com/)
@@ -36,8 +36,8 @@ class Scraper
       else
         hash[:blog] = link.attribute("href").text
       end
-
     end
+    hash
   end
 
 end
