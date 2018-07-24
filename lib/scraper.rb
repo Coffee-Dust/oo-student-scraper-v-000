@@ -19,15 +19,24 @@ class Scraper
 
   def self.scrape_profile_page(profile_url)
     vital_text = profile_url.css(".vitals-container .vitals-text-container")
-    social = profile_url.css(".vitals-container .social-icon-container a").attribute("href")
+    social = profile_url.css(".vitals-container .social-icon-container a")
     hash = {}
-    hash[:name] = vital_text.css(".profile_name").text.strip
-    hash[:location] = card.css(".profile_location").text.strip
-    hash[:profile_quote] = card.css(".profile_quote").text.strip
+    hash[:name] = vital_text.css(".profile-name").text.strip
+    hash[:location] = vital_text.css(".profile-location").text.strip
+    hash[:profile_quote] = vital_text.css(".profile-quote").text.strip
 
-    hash[:twitter] = social.match(/twitter.com/)
     social.each do |link|
-      link.attribute("href")
+
+      if link.attribute("href").text.match(/twitter.com/)
+        hash[:twitter] = link.attribute("href").text
+      elsif link.attribute("href").text.match(/github.com/)
+        hash[:github] = link.attribute("href").text
+      elsif link.attribute("href").text.match(/linkedin.com/)
+        hash[:linkedin] = link.attribute("href").text
+      else
+        hash[:blog] = link.attribute("href").text
+      end
+
     end
   end
 
